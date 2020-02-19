@@ -1,7 +1,6 @@
 package com.murilobatista.square
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
@@ -14,11 +13,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         db = FirebaseFirestore.getInstance()
         btnMudar.setOnClickListener { mudarQuadrado() }
-        db.collection("formas").get().addOnSuccessListener { result ->
-            for (document in result) {
-                Log.d("Formas", "${document.id} => ${document.data}")
-            }
-        }
     }
 
     private fun mudarQuadrado() {
